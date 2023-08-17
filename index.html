@@ -4,8 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up!</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div>
+        <div>Bachodin</div>
+        <p>Photo by <a href="">Halie West</a> from <a href="">Unsplash</a></p>
+    </div>
+    <div>
+        <p>This is not a real online service! You know you need something like
+            this in your life to help you realize your depeest dreams.
+            Sign up <i>now</i> to get started.
+            You <i>know</i> you want to.
+        </p>
+        <form>
+            <fieldset>
+                <legend>Let's do this!</legend>
+                <label for="fname">FIRST NAME</label>
+                <input type="text" placeholder="John" id="fname" name="fname" required>
+                <label for="lname">LAST NAME</label>
+                <input type="text" placeholder="Odin" id="lname" name="lname" required>
+                <label for="email">EMAIL</label>
+                <input type="email" placeholder="example@example.com" id="email" name="email" required>
+                <label for="phone">PHONE NUMBER</label>
+                <input type="tel" id="phone" name="phone">
+                <label for="pass">PASSWORD</label>
+                <input type="password" id="pass" name="pass" required>
+                <label for="confirm">CONFIRM PASSWORD</label>
+                <input type="password" id="confirm" name="confirm" required>
+            </fieldset>
+            <button>Create Account</button>
+        </form>
+        <p>Already have an account? <a href="">Log in</a></p>
+    </div>
 </body>
 </html>
