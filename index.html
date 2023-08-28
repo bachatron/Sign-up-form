@@ -7,35 +7,74 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-        <div>Bachodin</div>
-        <p>Photo by <a href="">Halie West</a> from <a href="">Unsplash</a></p>
+    <div class="background">
+        <div><img class="odin-logo" src="./img/logo.png" alt="Odin logo">Odin</div>
+        <p class="credits">Photo by <a href="https://unsplash.com/@haliewestphoto">Halie West</a> from <a href="https://unsplash.com/">Unsplash</a></p>
     </div>
-    <div>
-        <p>This is not a real online service! You know you need something like
-            this in your life to help you realize your depeest dreams.
-            Sign up <i>now</i> to get started.
+    <div class="form-field">
+        <p class="intro">This is not a real online service! You know you need something like
+            this in your life to help you realize your depeest dreams.<br>
+            Sign up <i>now</i> to get started.<br><br>
             You <i>know</i> you want to.
         </p>
-        <form>
+        <form id="form">
             <fieldset>
-                <legend>Let's do this!</legend>
-                <label for="fname">FIRST NAME</label>
-                <input type="text" placeholder="John" id="fname" name="fname" required>
-                <label for="lname">LAST NAME</label>
-                <input type="text" placeholder="Odin" id="lname" name="lname" required>
-                <label for="email">EMAIL</label>
-                <input type="email" placeholder="example@example.com" id="email" name="email" required>
-                <label for="phone">PHONE NUMBER</label>
-                <input type="tel" id="phone" name="phone">
-                <label for="pass">PASSWORD</label>
-                <input type="password" id="pass" name="pass" required>
-                <label for="confirm">CONFIRM PASSWORD</label>
-                <input type="password" id="confirm" name="confirm" required>
+                <legend>Let's do this!</legend>   
+                    <div>
+                        <label for="fname">FIRST NAME</label>
+                        <input type="text" placeholder="John" id="fname" name="fname" required>
+                    </div>
+                    <div>
+                        <label for="lname">LAST NAME</label>
+                        <input type="text" placeholder="Odin" id="lname" name="lname" required>
+                    </div>
+                    <div>
+                        <label for="email">EMAIL</label>
+                        <input type="email" placeholder="example@example.com" id="email" name="email" required>
+                    </div>
+                    <div>
+                        <label for="phone">PHONE NUMBER</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div>
+                        <label for="pass">PASSWORD</label>
+                        <input type="password" id="pass" name="pass" required>
+                    </div>
+                    <div>
+                        <label for="confirm">CONFIRM PASSWORD</label>
+                        <input type="password" id="confirm" name="confirm" required>
+                        <small id="confirmPassword-feedback"></small>
+                    </div>
+                    <button>Create Account</button>
             </fieldset>
-            <button>Create Account</button>
         </form>
         <p>Already have an account? <a href="">Log in</a></p>
     </div>
+    <script>
+        const form = document.getElementById("form");
+        const password = form.pass;
+        const confirmPassword = form.confirm;
+        const feedback = document.getElementById("confirmPassword-feedback");
+        let isPasswordMatch = false;
+
+        confirmPassword.addEventListener("input", () => {
+            if (password.value != confirmPassword.value) {
+                feedback.innerHTML = "Password did not match.";
+                isPasswordMatch = false;
+            } else {
+                feedback.innerHTML = "";
+                isPasswordMatch = true;
+            }
+        });
+
+        form.onsubmit = function () {
+            if (isPasswordMatch) {
+                alert("Form submitted. Great!");
+                return true;
+            }
+            alert("Wait! Password did not match.");
+            return false;
+        };
+    </script>
 </body>
 </html>
